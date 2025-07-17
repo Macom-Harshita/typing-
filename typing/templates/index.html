@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Test</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Typing Speed Test</h1>
+        <div id="branding">
+            <img src="{{ url_for('static', filename='type-speed-open.png') }}" alt="Branding" class="branding-img">
+        </div>
+        <div id="sentence-container">
+            <span id="sentence"></span>
+        </div>
+        <div id="input-container">
+            <input type="text" id="user-input" autocomplete="off" placeholder="Start typing here..." autofocus />
+        </div>
+        <div id="results" class="hidden"></div>
+        <button id="restart-btn" class="hidden">Restart</button>
+    </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html> 
