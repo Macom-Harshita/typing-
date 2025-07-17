@@ -3,11 +3,6 @@ let startTime = null;
 let ended = false;
 let currentLength = 50;
 
-const dummyParagraphs = {
-    50: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.',
-    100: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod.'
-};
-
 const sentenceContainer = document.getElementById('sentence');
 const userInput = document.getElementById('user-input');
 const resultsDiv = document.getElementById('results');
@@ -100,18 +95,21 @@ optionBtns.forEach(btn => {
 });
 
 function fetchAndStart(length) {
-    // For now, use dummy data
-    sentence = dummyParagraphs[length || 50];
-    startTime = null;
-    ended = false;
-    userInput.value = '';
-    userInput.disabled = false;
-    resultsDiv.classList.add('hidden');
-    restartBtn.classList.add('hidden');
-    renderSentence();
-    updateDisplay();
-    userInput.focus();
-    textScrollContainer.scrollTop = 0;
+    fetch(`/api/passage?length=${length || 50}`)
+        .then(res => res.json())
+        .then(data => {
+            sentence = data.passage;
+            startTime = null;
+            ended = false;
+            userInput.value = '';
+            userInput.disabled = false;
+            resultsDiv.classList.add('hidden');
+            restartBtn.classList.add('hidden');
+            renderSentence();
+            updateDisplay();
+            userInput.focus();
+            textScrollContainer.scrollTop = 0;
+        });
 }
 
 document.addEventListener('DOMContentLoaded', () => fetchAndStart(currentLength)); 
