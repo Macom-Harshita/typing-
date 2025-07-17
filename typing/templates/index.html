@@ -27,7 +27,15 @@
             </div>
         </div>
         <div id="results" class="results-box hidden"></div>
+        <button id="analytics-btn" class="hidden">Show Analytics</button>
         <button id="restart-btn" class="hidden">Restart</button>
+        <div id="analytics-modal" class="analytics-modal hidden">
+            <div class="analytics-content">
+                <span id="close-analytics" class="close-analytics">&times;</span>
+                <h2>Typing Analytics</h2>
+                <canvas id="analytics-chart" width="400" height="250"></canvas>
+            </div>
+        </div>
     </div>
     <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
