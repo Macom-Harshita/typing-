@@ -27,12 +27,44 @@ h1 {
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
-#sentence-container {
+.options-bar {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+.option-btn {
+    background: #232931;
+    color: #ffd366;
+    border: 2px solid #ffd366;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.option-btn.selected, .option-btn:focus {
+    background: #ffd366;
+    color: #232931;
+    border: 2px solid #ffd366;
+    font-weight: bold;
+}
+#text-scroll-container {
+    max-height: 120px;
+    overflow-y: auto;
+    background: rgba(34, 40, 49, 0.95);
+    border-radius: 8px;
+    border: 2px solid #ffd366;
     margin: 24px 0 16px 0;
-    font-size: 1.3rem;
+    padding: 8px 12px;
+    box-sizing: border-box;
+}
+#sentence-container {
+    font-size: 1.15rem;
     min-height: 48px;
     letter-spacing: 1px;
     word-break: break-word;
+    text-align: left;
 }
 .letter {
     padding: 2px 1px;

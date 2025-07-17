@@ -9,11 +9,17 @@
 <body>
     <div class="container">
         <h1>Typing Speed Test</h1>
+        <div id="options" class="options-bar">
+            <button class="option-btn selected" data-length="50">50 words</button>
+            <button class="option-btn" data-length="100">100 words</button>
+        </div>
         <div id="branding">
             <img src="{{ url_for('static', filename='type-speed-open.png') }}" alt="Branding" class="branding-img">
         </div>
-        <div id="sentence-container">
-            <span id="sentence"></span>
+        <div id="text-scroll-container">
+            <div id="sentence-container">
+                <span id="sentence"></span>
+            </div>
         </div>
         <div id="input-container">
             <div class="input-box">
