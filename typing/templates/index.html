@@ -16,9 +16,11 @@
             <span id="sentence"></span>
         </div>
         <div id="input-container">
-            <input type="text" id="user-input" autocomplete="off" placeholder="Start typing here..." autofocus />
+            <div class="input-box">
+                <input type="text" id="user-input" autocomplete="off" placeholder="Start typing here..." autofocus />
+            </div>
         </div>
-        <div id="results" class="hidden"></div>
+        <div id="results" class="results-box hidden"></div>
         <button id="restart-btn" class="hidden">Restart</button>
     </div>
     <script src="{{ url_for('static', filename='main.js') }}"></script>

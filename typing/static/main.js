@@ -50,6 +50,7 @@ function finishTest() {
     resultsDiv.innerHTML = `Time: <b>${totalTime.toFixed(1)}s</b> &nbsp; Accuracy: <b>${accuracy}%</b> &nbsp; WPM: <b>${wpm}</b>`;
     resultsDiv.classList.remove('hidden');
     restartBtn.classList.remove('hidden');
+    setTimeout(() => { resultsDiv.scrollIntoView({behavior: 'smooth', block: 'center'}); }, 100);
 }
 
 userInput.addEventListener('input', () => {
@@ -57,14 +58,11 @@ userInput.addEventListener('input', () => {
         startTime = Date.now();
     }
     updateDisplay();
-    if (userInput.value === sentence) {
-        finishTest();
-    }
 });
 
 userInput.addEventListener('keydown', (e) => {
-    if (ended && e.key === 'Enter') {
-        restartBtn.click();
+    if (!ended && e.key === 'Enter') {
+        finishTest();
     }
 });
 

@@ -53,19 +53,34 @@ h1 {
 #input-container {
     margin-bottom: 20px;
 }
-#user-input {
+.input-box {
     width: 100%;
-    padding: 12px;
-    font-size: 1.1rem;
+    max-width: 100%;
+    background: #232931;
     border: 2px solid #ffd366;
     border-radius: 8px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 48px;
+}
+#user-input {
+    width: 98%;
+    padding: 10px 12px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
     outline: none;
-    background: #232931;
+    background: transparent;
     color: #fff;
-    transition: border 0.2s;
+    box-sizing: border-box;
 }
 #user-input:focus {
-    border-color: #4caf50;
+    border: none;
+    outline: none;
 }
 #results {
     margin: 18px 0 10px 0;
@@ -74,6 +89,18 @@ h1 {
     background: #232931;
     border-radius: 8px;
     padding: 12px 0;
+}
+.results-box {
+    margin: 18px 0 10px 0;
+    font-size: 1.1rem;
+    color: #232931;
+    background: #ffd366;
+    border-radius: 8px;
+    padding: 16px 0;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    border: 2px solid #ffd366;
+    letter-spacing: 1px;
 }
 button#restart-btn {
     background: #ffd366;
